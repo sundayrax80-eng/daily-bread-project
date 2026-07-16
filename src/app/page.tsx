@@ -45,10 +45,19 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative min-h-[590px] overflow-hidden bg-chocolate text-white">
-        <Image src="/images/field/food-distribution-group.jpg" alt="Women receiving food support during a community outreach in Nigeria" fill priority className="object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-r from-chocolate/90 via-chocolate/62 to-chocolate/18" />
-        <Inner className="relative flex min-h-[590px] items-center px-4 py-16 lg:px-8">
+      <section className="relative overflow-hidden bg-chocolate text-white sm:min-h-[590px]">
+        <div className="relative aspect-[4/3] w-full bg-chocolate sm:absolute sm:inset-0 sm:aspect-auto">
+          <Image
+            src="/images/field/food-distribution-group.jpg"
+            alt="Women receiving food support during a community outreach in Nigeria"
+            fill
+            priority
+            sizes="100vw"
+            className="object-contain sm:object-cover sm:object-center"
+          />
+        </div>
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-chocolate/90 via-chocolate/62 to-chocolate/18 sm:block" />
+        <Inner className="relative flex px-4 py-10 sm:min-h-[590px] sm:items-center sm:py-16 lg:px-8">
           <div className="max-w-3xl">
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.18em] text-gold">Houston-rooted. Nigeria-focused.</p>
             <h1 className="font-serif text-4xl font-bold leading-tight sm:text-6xl">Restoring dignity, stability, and hope, one life at a time.</h1>
@@ -138,13 +147,13 @@ export default function Home() {
             <div className="grid gap-4 sm:grid-cols-2">
               {serviceSnapshot.map((service) => (
                 <article key={service.title} className="overflow-hidden rounded-lg bg-ivory shadow-sm ring-1 ring-chocolate/10">
-                  <div className="relative h-32">
+                  <div className="relative aspect-[4/3] bg-sand/35 sm:h-32 sm:aspect-auto">
                     <Image
                       src={service.image}
                       alt={service.imageAlt}
                       fill
-                      sizes="(min-width: 1024px) 25vw, 50vw"
-                      className="object-cover"
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-contain sm:object-cover"
                       style={{ objectPosition: service.imagePosition || "center" }}
                     />
                   </div>

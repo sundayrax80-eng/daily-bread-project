@@ -1,6 +1,7 @@
 import { Inner, PageHero, Section } from "@/components/Section";
 import { siteSettings } from "@/content/site";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PaymentForm } from "./PaymentForm";
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function DonationPaymentPage() {
       />
       <Section>
         <Inner className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <PaymentForm />
+          <Suspense fallback={null}>
+            <PaymentForm />
+          </Suspense>
 
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-lg bg-sand/45 p-6">

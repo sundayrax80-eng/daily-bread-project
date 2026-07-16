@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/Button";
-import { TrustNote } from "@/components/FeatureBlocks";
 import { Inner } from "@/components/Section";
 import { donationAmounts } from "@/content/programs";
 import { publishedProjects } from "@/content/projects";
@@ -45,8 +44,6 @@ export default function DonateFormClient() {
           {publishedProjects.map((project) => <option key={project.id}>{project.title}</option>)}
         </select>
       </label>
-      {/* First name and email removed here — collected on payment information step */}
-      <label className="grid gap-2 font-semibold">Optional dedication<input className="min-h-12 rounded-md border border-chocolate/20 px-3" /></label>
       <label className="flex gap-2"><input type="checkbox" /> Make this gift anonymous publicly</label>
       <label className="flex gap-2"><input type="checkbox" /> Send me project updates</label>
       <div className="rounded-lg bg-sand/50 p-5 text-sm">Next, you will review payment information and continue to secure processing.</div>
