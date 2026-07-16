@@ -17,6 +17,7 @@ export default function PayPalButton({ amount }: { amount: string }) {
       return;
     }
 
+    if (typeof document === "undefined") return;
     const existing = document.getElementById("paypal-sdk-script");
     if (!existing) {
       const script = document.createElement("script");
@@ -25,13 +26,14 @@ export default function PayPalButton({ amount }: { amount: string }) {
       script.async = true;
       document.body.appendChild(script);
       script.onload = renderButtons;
-    } else if (window.paypal) {
+    } else if (typeof window !== "undefined" && window.paypal) {
       renderButtons();
-    } else {
+    } else if (existing) {
       existing.addEventListener("load", renderButtons);
     }
 
     function renderButtons() {
+      if (typeof window === "undefined") return;
       if (!ref.current) return;
       if (!window.paypal) return console.error("PayPal SDK not available");
 
