@@ -31,7 +31,7 @@ export default function MediaPage() {
         </Inner>
       </Section>
       <Section className="bg-white"><Inner><SectionHeading title="Speaking topics" /><div className="mt-8 grid gap-4 md:grid-cols-4">{topics.map((topic) => <div key={topic} className="rounded-lg border border-chocolate/10 p-5">{topic}</div>)}</div></Inner></Section>
-      <Section className="bg-sand/35"><Inner className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]"><SectionHeading title="Media inquiry" text="Use this form for interview, speaking, or press requests." /><ContactForm endpoint="/api/media" type="media" /></Inner></Section>
+      <Section className="bg-sand/35"><Inner className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]"><SectionHeading title="Media inquiry" text="Use this form for interview, speaking, or press requests." /><ContactForm type="media" /></Inner></Section>
     </>
   );
 }
