@@ -56,8 +56,8 @@ export default function PayPalButton({ amount }: { amount: string }) {
               body: JSON.stringify({ orderID: data.orderID }),
             });
             const capture = await res.json();
-            // On success, redirect to thank you page
-            window.location.href = "/donation-thank-you";
+            // On success, redirect to thank you page with orderID for server lookup
+            window.location.href = `/donation-thank-you?orderID=${encodeURIComponent(data.orderID)}`;
           },
           onError: (err: any) => {
             console.error("PayPal error", err);
