@@ -18,7 +18,7 @@ const styles = {
   ghost: "text-chocolate underline-offset-4 hover:underline",
 };
 
-export function Button({ href, children, variant = "primary", className, type = "button" }: Props) {
+export function Button({ href, children, variant = "primary", className, type = "button", onClick }: Props) {
   const classNames = cx(
     "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
     styles[variant],
