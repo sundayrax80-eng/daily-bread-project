@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import type { InputHTMLAttributes } from "react";
 import { Button } from "@/components/Button";
 import PayPalButton from "@/components/PayPalButton";
@@ -95,9 +96,11 @@ function Field({
 }
 
 export function PaymentForm() {
+  const searchParams = useSearchParams();
+  const paramAmount = searchParams?.get("amount") ?? undefined;
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("Credit or debit card");
   const [giftSchedule, setGiftSchedule] = useState<GiftSchedule>("One-time gift");
-  const [amount, setAmount] = useState<string>("50.00");
+  const [amount, setAmount] = useState<string>(paramAmount ? paramAmount : "50.00");
   const isRecurring = giftSchedule === "Monthly Bread Partner";
 
   return (

@@ -8,6 +8,7 @@ type Props = {
   variant?: "primary" | "secondary" | "light" | "ghost";
   className?: string;
   type?: "button" | "submit";
+  onClick?: React.ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
 };
 
 const styles = {
@@ -24,5 +25,5 @@ export function Button({ href, children, variant = "primary", className, type = 
     className,
   );
   if (href) return <Link className={classNames} href={href}>{children}</Link>;
-  return <button className={classNames} type={type}>{children}</button>;
+  return <button className={classNames} type={type} onClick={onClick}>{children}</button>;
 }

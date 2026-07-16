@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/Button";
 import { TrustNote } from "@/components/FeatureBlocks";
 import { Inner, PageHero, Section } from "@/components/Section";
@@ -8,6 +12,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Donate", description: "Give to The Daily Bread Project and help meet practical needs with dignity and care." };
 
 export default function DonatePage() {
+  const router = useRouter();
+  const [selectedAmount, setSelectedAmount] = useState<string>(String(donationAmounts?.[0]?.amount ?? "50"));
+
+  function goToPayment() {
+    const amt = selectedAmount || String(donationAmounts?.[0]?.amount ?? "50");
+    const value = Number(amt) || 0;
+    const formatted = value.toFixed(2);
+    router.push(`/donate/payment?amount=${encodeURIComponent(formatted)}`);
+  }
+
   return (
     <>
       <PageHero title="Your gift can become practical help." text="Every gift helps us respond with compassion, dignity, and care for families carrying real daily needs." />
@@ -17,7 +31,7 @@ export default function DonatePage() {
             <TrustNote />
             <p className="mt-5 text-charcoal/75">A secure giving provider will process donations so payment information is handled safely outside this website.</p>
           </div>
-          <form className="grid gap-5 rounded-lg bg-white p-6 shadow-sm">
+          <form className="grid gap-5 rounded-lg bg-white p-6 shadow-sm" onSubmit={(e) => { e.preventDefault(); goToPayment(); }}>
             <fieldset>
               <legend className="font-bold text-chocolate">Gift type</legend>
               <div className="mt-3 flex flex-wrap gap-3">
@@ -30,7 +44,7 @@ export default function DonatePage() {
               <div className="mt-3 grid gap-3 sm:grid-cols-3">
                 {donationAmounts.map((item) => (
                   <label key={item.label} className="rounded-md border border-chocolate/15 p-3">
-                    <input name="amount" type="radio" value={item.amount} /> {item.amount ? `$${item.amount}` : "Custom"}
+                    <input name="amount" type="radio" value={item.amount} checked={String(item.amount) === selectedAmount} onChange={() => setSelectedAmount(String(item.amount))} /> {item.amount ? `$${item.amount}` : "Custom"}
                   </label>
                 ))}
               </div>
@@ -50,7 +64,7 @@ export default function DonatePage() {
             <label className="flex gap-2"><input type="checkbox" /> Make this gift anonymous publicly</label>
             <label className="flex gap-2"><input type="checkbox" /> Send me project updates</label>
             <div className="rounded-lg bg-sand/50 p-5 text-sm">Next, you will review payment information and continue to secure processing.</div>
-            <Button href="/donate/payment">Continue Giving</Button>
+            <Button type="button" onClick={goToPayment}>Continue Giving</Button>
           </form>
         </Inner>
       </Section>
