@@ -16,7 +16,7 @@ export default function DonationPaymentPage() {
       <PageHero
         eyebrow="Step 2 of 2"
         title="Complete your donation"
-        text="Make a secure, one-time donation through PayPal. Your payment details are entered only in PayPal's protected checkout."
+        text="Complete a secure one-time or monthly donation through PayPal. Your payment details are entered only in PayPal's protected checkout."
       />
       <Section>
         <Inner className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">

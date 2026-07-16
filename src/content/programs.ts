@@ -33,6 +33,8 @@ export const donationAmounts = [
   { amount: 0, label: "Custom gift: give where the need is greatest" },
 ];
 
+export const monthlyDonationAmounts = donationAmounts.filter((item) => item.amount > 0);
+
 export const partnershipOptions = [
   "Project sponsorship",
   "Program underwriting",
