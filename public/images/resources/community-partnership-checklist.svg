@@ -1,0 +1,19 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Community partnership checklist cover</title>
+  <desc id="desc">A partnership checklist cover with a handshake, connected community points, and checklist marks.</desc>
+  <rect width="1200" height="760" fill="#F7F1E7"/>
+  <rect x="0" y="0" width="1200" height="760" fill="#F0E1CD"/>
+  <circle cx="208" cy="214" r="88" fill="#D9A441" opacity=".6"/>
+  <circle cx="1008" cy="548" r="132" fill="#6E7F58" opacity=".22"/>
+  <path d="M246 270L418 210L558 302L694 210L958 302" stroke="#243D2B" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="246" cy="270" r="34" fill="#243D2B"/>
+  <circle cx="418" cy="210" r="34" fill="#B8573A"/>
+  <circle cx="558" cy="302" r="34" fill="#D9A441"/>
+  <circle cx="694" cy="210" r="34" fill="#6E7F58"/>
+  <circle cx="958" cy="302" r="34" fill="#243D2B"/>
+  <rect x="230" y="382" width="350" height="146" rx="30" fill="#C98542"/>
+  <rect x="620" y="382" width="350" height="146" rx="30" fill="#B8573A"/>
+  <path d="M548 430C582 398 626 398 660 430L704 472C722 490 722 519 704 536C686 554 657 554 639 536L600 498L561 536C543 554 514 554 496 536C478 519 478 490 496 472L548 430Z" fill="#243D2B"/>
+  <path d="M342 456l38 38 84-90M736 456l38 38 84-90" stroke="white" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="92" y="704" fill="#243D2B" font-family="Arial, sans-serif" font-size="38" font-weight="700">Community Partnership Checklist</text>
+</svg>

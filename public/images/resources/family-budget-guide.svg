@@ -1,0 +1,22 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Family budget guide cover</title>
+  <desc id="desc">A warm illustrated cover with a ledger, coins, and household planning marks.</desc>
+  <rect width="1200" height="760" fill="#F7F1E7"/>
+  <rect x="0" y="0" width="1200" height="220" fill="#243D2B"/>
+  <circle cx="1010" cy="146" r="108" fill="#D9A441" opacity=".28"/>
+  <circle cx="1088" cy="92" r="54" fill="#B8573A" opacity=".22"/>
+  <rect x="116" y="118" width="968" height="518" rx="28" fill="white" stroke="#E4D2BA" stroke-width="4"/>
+  <rect x="194" y="202" width="520" height="352" rx="16" fill="#F3E6D0"/>
+  <rect x="242" y="256" width="424" height="22" rx="11" fill="#243D2B" opacity=".9"/>
+  <rect x="242" y="318" width="348" height="16" rx="8" fill="#6E7F58"/>
+  <rect x="242" y="374" width="388" height="16" rx="8" fill="#6E7F58"/>
+  <rect x="242" y="430" width="300" height="16" rx="8" fill="#6E7F58"/>
+  <path d="M242 494H666" stroke="#CDA879" stroke-width="4" stroke-linecap="round"/>
+  <path d="M330 240V536M450 240V536M570 240V536" stroke="white" stroke-width="4" opacity=".65"/>
+  <circle cx="810" cy="420" r="84" fill="#D9A441"/>
+  <circle cx="884" cy="370" r="72" fill="#C98542"/>
+  <path d="M807 372v96M777 402h60c19 0 35 15 35 34s-16 34-35 34h-60" stroke="#243D2B" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="760" y="238" width="176" height="70" rx="35" fill="#B8573A" opacity=".95"/>
+  <path d="M804 273l25 25 62-62" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="116" y="690" fill="#243D2B" font-family="Arial, sans-serif" font-size="38" font-weight="700">Simple Family Budget Guide</text>
+</svg>

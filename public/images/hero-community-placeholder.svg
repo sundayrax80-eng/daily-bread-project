@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Dignified community outreach image placeholder</title>
+  <desc id="desc">Warm abstract placeholder to be replaced with approved Nigeria outreach photography.</desc>
+  <rect width="1600" height="1000" fill="#536442"/>
+  <circle cx="1240" cy="230" r="260" fill="#C69A4B" opacity=".42"/>
+  <circle cx="280" cy="760" r="340" fill="#A86445" opacity=".35"/>
+  <path d="M0 790c190-100 370-128 560-62 170 60 309 44 457-30 178-90 366-81 583 28v274H0z" fill="#3A2418" opacity=".58"/>
+  <rect x="170" y="190" width="560" height="410" rx="10" fill="#F8F3EA" opacity=".88"/>
+  <path d="M238 515c90-96 165-142 248-142 78 0 132 38 184 142" fill="none" stroke="#536442" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="365" cy="318" r="58" fill="#A86445"/>
+  <circle cx="527" cy="318" r="58" fill="#C69A4B"/>
+  <text x="238" y="258" fill="#3A2418" font-family="Arial" font-size="34" font-weight="700">Approved field image</text>
+  <text x="238" y="560" fill="#3A2418" font-family="Arial" font-size="28">Replace with hopeful, consented photography</text>
+</svg>

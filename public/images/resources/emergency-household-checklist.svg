@@ -1,0 +1,19 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Emergency household checklist cover</title>
+  <desc id="desc">A practical emergency checklist cover with household supplies, water, and check marks.</desc>
+  <rect width="1200" height="760" fill="#F5EFE3"/>
+  <rect x="0" y="0" width="1200" height="760" fill="#E9DCC8"/>
+  <path d="M0 520C172 436 287 488 458 404C650 310 812 346 1200 204V760H0V520Z" fill="#243D2B"/>
+  <rect x="108" y="98" width="420" height="540" rx="26" fill="white" stroke="#D8C2A1" stroke-width="4"/>
+  <rect x="170" y="168" width="250" height="26" rx="13" fill="#243D2B"/>
+  <rect x="170" y="250" width="244" height="18" rx="9" fill="#6E7F58"/>
+  <rect x="170" y="332" width="270" height="18" rx="9" fill="#6E7F58"/>
+  <rect x="170" y="414" width="214" height="18" rx="9" fill="#6E7F58"/>
+  <rect x="170" y="496" width="286" height="18" rx="9" fill="#6E7F58"/>
+  <path d="M132 254l18 18 38-46M132 336l18 18 38-46M132 418l18 18 38-46M132 500l18 18 38-46" stroke="#B8573A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="662" y="214" width="236" height="250" rx="22" fill="#D9A441"/>
+  <path d="M780 260v118M721 319h118" stroke="#243D2B" stroke-width="28" stroke-linecap="round"/>
+  <path d="M958 454C958 543 885 616 796 616C707 616 634 543 634 454C634 365 796 176 796 176C796 176 958 365 958 454Z" fill="#6FA8A0"/>
+  <path d="M870 474C870 515 837 548 796 548" stroke="white" stroke-width="18" stroke-linecap="round" opacity=".9"/>
+  <text x="108" y="704" fill="#F7F1E7" font-family="Arial, sans-serif" font-size="38" font-weight="700">Emergency Household Checklist</text>
+</svg>

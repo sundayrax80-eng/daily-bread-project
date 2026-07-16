@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1050" viewBox="0 0 900 1050" role="img" aria-labelledby="title desc">
+  <title id="title">Founder portrait placeholder</title>
+  <desc id="desc">A warm portrait placeholder for Sunday Rax.</desc>
+  <rect width="900" height="1050" fill="#E8D9C4"/>
+  <circle cx="450" cy="330" r="120" fill="#A86445"/>
+  <path d="M220 880c30-210 145-320 230-320s200 110 230 320" fill="#536442"/>
+  <text x="90" y="130" fill="#3A2418" font-family="Arial" font-size="38" font-weight="700">Sunday Rax</text>
+  <text x="90" y="180" fill="#292725" font-family="Arial" font-size="25">Founder portrait placeholder</text>
+</svg>

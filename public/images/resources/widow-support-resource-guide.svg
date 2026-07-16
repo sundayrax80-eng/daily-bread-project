@@ -1,0 +1,17 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Widow support guide cover</title>
+  <desc id="desc">A compassionate cover showing supportive figures, a heart, and warm protective shapes.</desc>
+  <rect width="1200" height="760" fill="#F7F1E7"/>
+  <rect x="0" y="0" width="1200" height="760" fill="#F2DFC8"/>
+  <circle cx="246" cy="185" r="132" fill="#D9A441" opacity=".65"/>
+  <circle cx="952" cy="532" r="184" fill="#243D2B" opacity=".12"/>
+  <path d="M600 144C454 144 336 262 336 408C336 554 600 660 600 660C600 660 864 554 864 408C864 262 746 144 600 144Z" fill="white" stroke="#E0C39D" stroke-width="5"/>
+  <circle cx="512" cy="348" r="60" fill="#B8573A"/>
+  <circle cx="688" cy="348" r="60" fill="#C98542"/>
+  <path d="M414 550C424 464 462 418 512 418C562 418 600 464 610 550" fill="#243D2B"/>
+  <path d="M590 550C600 464 638 418 688 418C738 418 776 464 786 550" fill="#6E7F58"/>
+  <path d="M600 308C621 270 680 284 680 334C680 388 600 426 600 426C600 426 520 388 520 334C520 284 579 270 600 308Z" fill="#D9A441"/>
+  <path d="M348 286C305 342 286 403 292 468C301 565 372 632 454 658" stroke="#243D2B" stroke-width="26" stroke-linecap="round" opacity=".8"/>
+  <path d="M852 286C895 342 914 403 908 468C899 565 828 632 746 658" stroke="#243D2B" stroke-width="26" stroke-linecap="round" opacity=".8"/>
+  <text x="96" y="704" fill="#243D2B" font-family="Arial, sans-serif" font-size="38" font-weight="700">Widow Support Resource Guide</text>
+</svg>

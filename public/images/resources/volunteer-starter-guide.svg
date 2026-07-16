@@ -1,0 +1,19 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Volunteer starter guide cover</title>
+  <desc id="desc">A volunteer guide cover with helping hands, people, and warm community colors.</desc>
+  <rect width="1200" height="760" fill="#F5EFE3"/>
+  <rect x="0" y="0" width="1200" height="260" fill="#B8573A"/>
+  <rect x="0" y="260" width="1200" height="500" fill="#F7F1E7"/>
+  <circle cx="256" cy="382" r="70" fill="#D9A441"/>
+  <circle cx="482" cy="338" r="70" fill="#C98542"/>
+  <circle cx="708" cy="382" r="70" fill="#6E7F58"/>
+  <path d="M126 610C142 506 190 452 256 452C322 452 370 506 386 610" fill="#243D2B"/>
+  <path d="M352 610C368 462 416 408 482 408C548 408 596 462 612 610" fill="#6E7F58"/>
+  <path d="M578 610C594 506 642 452 708 452C774 452 822 506 838 610" fill="#243D2B"/>
+  <path d="M815 358C874 320 924 332 966 386L1022 458" stroke="#D9A441" stroke-width="42" stroke-linecap="round"/>
+  <path d="M1022 458L1092 386" stroke="#C98542" stroke-width="42" stroke-linecap="round"/>
+  <path d="M861 452l72-54 76 60" stroke="white" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M214 208C214 170 245 140 282 140H660C698 140 728 170 728 208V232H214V208Z" fill="white" opacity=".92"/>
+  <rect x="278" y="174" width="384" height="22" rx="11" fill="#243D2B"/>
+  <text x="92" y="704" fill="#243D2B" font-family="Arial, sans-serif" font-size="38" font-weight="700">Volunteer Starter Guide</text>
+</svg>
