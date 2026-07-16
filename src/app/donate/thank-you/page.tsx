@@ -51,7 +51,14 @@ export default async function ThankYouPage({ searchParams }: { searchParams?: { 
 
   return (
     <>
-      <PageHero title={order ? "Thank you — payment received" : "Your generosity just became practical help."} text={order ? `Thank you ${payerName ?? ""}. We received your ${currency} ${amount}.` : "Thank you for supporting The Daily Bread Project. Your gift helps us respond with dignity, compassion, and practical support."} />
+      <PageHero
+        title={order ? "Thank you — payment received" : "Your generosity just became practical help."}
+        text={
+          order
+            ? `Thank you ${payerName ?? ""}. We received your ${currency} ${amount}. Your gift will help provide meals, emergency support, and pathways to stability for people in need.`
+            : "Thank you for supporting The Daily Bread Project. Your gift helps us respond with dignity, compassion, and practical support."
+        }
+      />
 
       <Section>
         <Inner className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-sm">
@@ -66,7 +73,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams?: { 
               </div>
               <div>
                 <h3 className="font-semibold">What happens next</h3>
-                <p className="mt-2 text-sm text-charcoal/75">You will receive an email receipt from PayPal. If you need a formal receipt or have questions about your donation, contact us and include the Order ID above.</p>
+                <p className="mt-2 text-sm text-charcoal/75">You will receive an email receipt from PayPal. Your contribution helps fund direct services — if you need a formal receipt, a copy for your records, or have questions about your gift, contact us and include the Order ID above.</p>
               </div>
               <div className="flex gap-3">
                 <Button href="/contact">Contact donation support</Button>
