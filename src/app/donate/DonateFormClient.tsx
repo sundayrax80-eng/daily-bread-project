@@ -4,18 +4,28 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Inner } from "@/components/Section";
-import { donationAmounts } from "@/content/programs";
+import { donationAmounts, monthlyDonationAmounts } from "@/content/programs";
 import { publishedProjects } from "@/content/projects";
 
 export default function DonateFormClient() {
   const router = useRouter();
+  const [giftType, setGiftType] = useState<"one-time" | "monthly">("one-time");
   const [selectedAmount, setSelectedAmount] = useState<string>(String(donationAmounts?.[0]?.amount ?? "50"));
 
+  const availableAmounts = giftType === "monthly" ? monthlyDonationAmounts : donationAmounts;
+
+  function selectGiftType(nextGiftType: "one-time" | "monthly") {
+    setGiftType(nextGiftType);
+    if (nextGiftType === "monthly" && !monthlyDonationAmounts.some((item) => String(item.amount) === selectedAmount)) {
+      setSelectedAmount(String(monthlyDonationAmounts[0]?.amount ?? 10));
+    }
+  }
+
   function goToPayment() {
-    const amt = selectedAmount || String(donationAmounts?.[0]?.amount ?? "50");
+    const amt = selectedAmount || String(availableAmounts?.[0]?.amount ?? "50");
     const value = Number(amt) || 0;
     const formatted = value.toFixed(2);
-    router.push(`/donate/payment?amount=${encodeURIComponent(formatted)}`);
+    router.push(`/donate/payment?amount=${encodeURIComponent(formatted)}&gift=${giftType}`);
   }
 
   return (
@@ -23,14 +33,18 @@ export default function DonateFormClient() {
       <fieldset>
         <legend className="font-bold text-chocolate">Gift type</legend>
         <div className="mt-3 flex flex-wrap gap-3">
-          <label><input name="giftType" type="radio" defaultChecked /> One-time</label>
-          <label><input name="giftType" type="radio" /> Monthly Bread Partner</label>
+          <label className="rounded-md border border-chocolate/15 px-4 py-3">
+            <input name="giftType" type="radio" checked={giftType === "one-time"} onChange={() => selectGiftType("one-time")} /> One-time
+          </label>
+          <label className="rounded-md border border-chocolate/15 px-4 py-3">
+            <input name="giftType" type="radio" checked={giftType === "monthly"} onChange={() => selectGiftType("monthly")} /> Monthly Bread Partner
+          </label>
         </div>
       </fieldset>
       <fieldset>
         <legend className="font-bold text-chocolate">Amount</legend>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {donationAmounts.map((item) => (
+          {availableAmounts.map((item) => (
             <label key={item.label} className="rounded-md border border-chocolate/15 p-3">
               <input name="amount" type="radio" value={item.amount} checked={String(item.amount) === selectedAmount} onChange={() => setSelectedAmount(String(item.amount))} /> {item.amount ? `$${item.amount}` : "Custom"}
             </label>
