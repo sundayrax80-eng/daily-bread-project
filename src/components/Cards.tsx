@@ -74,16 +74,16 @@ export function PathwayCard({
     <Link
       href={href}
       aria-label={ariaLabel || `${title}: ${cta || "Learn more"}`}
-      className="group flex h-full min-h-[320px] overflow-hidden rounded-lg border border-chocolate/10 bg-white shadow-sm transition hover:-translate-y-1 hover:bg-gold/10 hover:shadow-md focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-gold motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      className="group flex h-full min-h-[320px] flex-col overflow-hidden rounded-lg border border-chocolate/10 bg-white shadow-sm transition hover:-translate-y-1 hover:bg-gold/10 hover:shadow-md focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-gold sm:flex-row motion-reduce:transition-none motion-reduce:hover:translate-y-0"
     >
       {image && (
-        <div className="relative h-36 overflow-hidden bg-sand">
+        <div className="relative h-56 w-full overflow-hidden bg-sand sm:h-36 sm:w-auto">
           <Image
             src={image}
             alt={imageAlt || ""}
             fill
             sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-            className="object-cover transition duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            className="object-contain transition duration-500 group-hover:scale-105 sm:object-cover motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             style={{ objectPosition: imagePosition || "center" }}
           />
           <span className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-full bg-ivory/95 text-forest shadow-sm transition group-hover:bg-forest group-hover:text-white motion-reduce:transition-none">
@@ -136,7 +136,7 @@ export function ProjectCard({ project }: { project: Project }) {
         alt=""
         width={900}
         height={560}
-        className="h-56 w-full object-cover"
+        className="h-auto w-full object-contain sm:h-56 sm:object-cover"
         style={{ objectPosition: project.imagePosition || "center" }}
       />
       <div className="p-6">
