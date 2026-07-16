@@ -46,23 +46,48 @@ function Status({ state, success }: { state: FormState; success: string }) {
   return null;
 }
 
-function useForm(endpoint: string, success: string) {
+function useForm(formName: string, success: string) {
   const [state, setState] = useState<FormState>("idle");
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (state === "loading") return;
     setState("loading");
-    const response = await fetch(endpoint, { method: "POST", body: new FormData(event.currentTarget) });
-    setState(response.ok ? "success" : "error");
-    if (response.ok) event.currentTarget.reset();
+    const formElement = event.currentTarget;
+    const encoded = new URLSearchParams();
+    for (const [key, value] of new FormData(formElement).entries()) {
+      if (typeof value === "string") encoded.append(key, value);
+    }
+    encoded.set("form-name", formName);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded.toString(),
+      });
+      setState(response.ok ? "success" : "error");
+      if (response.ok) formElement.reset();
+    } catch {
+      setState("error");
+    }
   }
   return { state, onSubmit, success };
 }
 
 export function NewsletterForm({ compact = false }: { compact?: boolean }) {
-  const form = useForm("/api/newsletter", "Welcome. You are on the list for future updates.");
+  const formName = "newsletter";
+  const form = useForm(formName, "Welcome. You are on the list for future updates.");
   return (
-    <form onSubmit={form.onSubmit} className={compact ? "grid gap-3 md:grid-cols-[1fr_1fr_auto]" : "grid gap-4 rounded-lg bg-white p-6 shadow-sm"}>
+    <form
+      name={formName}
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="company_website"
+      onSubmit={form.onSubmit}
+      className={compact ? "grid gap-3 md:grid-cols-[1fr_1fr_auto]" : "grid gap-4 rounded-lg bg-white p-6 shadow-sm"}
+    >
+      <input type="hidden" name="form-name" value={formName} />
+      <input type="hidden" name="subject" value="New newsletter signup — The Daily Bread Project" data-remove-prefix />
       {!compact && <p className="font-serif text-2xl font-bold text-chocolate">Stay connected to the work.</p>}
       <Honeypot />
       <input
@@ -93,16 +118,27 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   );
 }
 
-export function ContactForm({ endpoint = "/api/contact", type = "contact" }: { endpoint?: string; type?: "contact" | "volunteer" | "assistance" | "partnership" | "media" }) {
+export function ContactForm({ type = "contact" }: { type?: "contact" | "volunteer" | "assistance" | "partnership" | "media" }) {
   const success =
     type === "volunteer"
       ? "Thank you for volunteering with The Daily Bread Project. We received your information and will be in touch soon."
       : type === "assistance"
         ? "Thank you. We received your request and will review it with care. Submission does not guarantee assistance."
         : "Thank you. Your message was received.";
-  const form = useForm(endpoint, success);
+  const formName = type;
+  const subject = `New ${type} submission — The Daily Bread Project`;
+  const form = useForm(formName, success);
   return (
-    <form onSubmit={form.onSubmit} className="grid gap-5 rounded-lg border border-chocolate/10 bg-white p-6 shadow-sm">
+    <form
+      name={formName}
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="company_website"
+      onSubmit={form.onSubmit}
+      className="grid gap-5 rounded-lg border border-chocolate/10 bg-white p-6 shadow-sm"
+    >
+      <input type="hidden" name="form-name" value={formName} />
+      <input type="hidden" name="subject" value={subject} data-remove-prefix />
       <Honeypot />
       <div className="grid gap-5 md:grid-cols-2">
         <Field label={type === "contact" ? "Name" : "Full name"} name="name" required />
