@@ -6,6 +6,9 @@ import type { InputHTMLAttributes } from "react";
 import { Button } from "@/components/Button";
 import PayPalButton from "@/components/PayPalButton";
 
+// Read NEXT_PUBLIC at build time; avoid throwing during prerender if it's missing.
+const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? null;
+
 const paymentMethods = ["Credit or debit card", "Bank transfer", "PayPal or digital wallet"] as const;
 type PaymentMethod = (typeof paymentMethods)[number];
 const giftSchedules = ["One-time gift", "Monthly Bread Partner"] as const;
@@ -96,6 +99,15 @@ function Field({
 }
 
 export function PaymentForm() {
+  // If the build environment doesn't provide the public PayPal client id,
+  // avoid crashing during prerender and show a helpful message.
+  if (!PAYPAL_CLIENT_ID) {
+    return (
+      <div className="rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-sm text-yellow-800">
+        PayPal is not configured for this build (NEXT_PUBLIC_PAYPAL_CLIENT_ID missing). Please set the environment variable and redeploy.
+      </div>
+    );
+  }
   const searchParams = useSearchParams();
   const paramAmount = searchParams?.get("amount") ?? undefined;
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("Credit or debit card");
