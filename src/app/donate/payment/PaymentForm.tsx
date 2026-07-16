@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { InputHTMLAttributes } from "react";
 import { Button } from "@/components/Button";
+import PayPalButton from "@/components/PayPalButton";
 
 const paymentMethods = ["Credit or debit card", "Bank transfer", "PayPal or digital wallet"] as const;
 type PaymentMethod = (typeof paymentMethods)[number];
@@ -96,6 +97,7 @@ function Field({
 export function PaymentForm() {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("Credit or debit card");
   const [giftSchedule, setGiftSchedule] = useState<GiftSchedule>("One-time gift");
+  const [amount, setAmount] = useState<string>("50.00");
   const isRecurring = giftSchedule === "Monthly Bread Partner";
 
   return (
@@ -165,6 +167,17 @@ export function PaymentForm() {
         </div>
       </fieldset>
 
+      <label className="grid gap-2 font-semibold">
+        Gift amount (USD)
+        <input
+          name="amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          inputMode="decimal"
+          className="min-h-12 w-full rounded-md border border-chocolate/20 px-3"
+        />
+      </label>
+
       <div className="grid gap-4 md:grid-cols-2">
         <Field label="Full name" name="fullName" autoComplete="name" />
         <Field label="Email address" name="email" type="email" autoComplete="email" />
@@ -229,6 +242,12 @@ export function PaymentForm() {
                 <option>Other digital wallet</option>
               </select>
             </label>
+            <div className="mt-3">
+              {/* PayPal button component */}
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+              {/* @ts-ignore */}
+              <PayPalButton amount={amount} />
+            </div>
           </div>
         )}
         <p className="mt-4 text-sm leading-6 text-charcoal/70">
