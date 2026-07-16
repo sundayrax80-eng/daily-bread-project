@@ -9,6 +9,10 @@ function baseUrl() {
 }
 
 async function getAccessToken() {
+  if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
+    throw new Error("PayPal is not configured");
+  }
+
   const tokenRes = await fetch(`${baseUrl()}/v1/oauth2/token`, {
     method: "POST",
     headers: {
@@ -24,7 +28,18 @@ async function getAccessToken() {
 
 export async function POST(req: Request) {
   try {
-    const { amount = "0.00", currency = "USD" } = await req.json();
+    const { amount } = await req.json();
+    const amountText = String(amount ?? "").trim();
+    if (!/^\d+(\.\d{1,2})?$/.test(amountText)) {
+      return NextResponse.json({ error: "Enter a valid donation amount" }, { status: 400 });
+    }
+
+    const numericAmount = Number(amountText);
+    if (!Number.isFinite(numericAmount) || numericAmount < 1 || numericAmount > 100_000) {
+      return NextResponse.json({ error: "Donation amount must be between $1 and $100,000" }, { status: 400 });
+    }
+
+    const formattedAmount = numericAmount.toFixed(2);
     const accessToken = await getAccessToken();
 
     const orderRes = await fetch(`${baseUrl()}/v2/checkout/orders`, {
@@ -44,8 +59,8 @@ export async function POST(req: Request) {
         purchase_units: [
           {
             amount: {
-              currency_code: currency,
-              value: String(amount),
+              currency_code: "USD",
+              value: formattedAmount,
             },
           },
         ],
@@ -59,7 +74,8 @@ export async function POST(req: Request) {
 
     const orderData = await orderRes.json();
     return NextResponse.json({ orderID: orderData.id });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || String(err) }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

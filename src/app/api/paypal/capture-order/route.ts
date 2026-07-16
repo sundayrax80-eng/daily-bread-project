@@ -9,6 +9,10 @@ function baseUrl() {
 }
 
 async function getAccessToken() {
+  if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
+    throw new Error("PayPal is not configured");
+  }
+
   const tokenRes = await fetch(`${baseUrl()}/v1/oauth2/token`, {
     method: "POST",
     headers: {
@@ -25,7 +29,9 @@ async function getAccessToken() {
 export async function POST(req: Request) {
   try {
     const { orderID } = await req.json();
-    if (!orderID) return NextResponse.json({ error: "orderID required" }, { status: 400 });
+    if (typeof orderID !== "string" || !/^[A-Z0-9]{10,30}$/i.test(orderID)) {
+      return NextResponse.json({ error: "A valid PayPal order ID is required" }, { status: 400 });
+    }
 
     const accessToken = await getAccessToken();
 
@@ -44,7 +50,8 @@ export async function POST(req: Request) {
 
     const captureData = await captureRes.json();
     return NextResponse.json({ capture: captureData });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || String(err) }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
