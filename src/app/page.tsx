@@ -191,6 +191,31 @@ export default function Home() {
         </Inner>
       </Section>
 
+      <Section className="bg-forest py-12 text-ivory sm:py-16">
+        <Inner>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-gold">Mission Work in Action</p>
+            <h2 className="mt-3 font-serif text-3xl font-bold sm:text-5xl">See what compassion looks like in motion.</h2>
+            <p className="mt-5 text-lg leading-8 text-ivory/80">
+              Watch a moment of faith, care, and community connection from the field—where showing up with humility can remind people that they are seen and not forgotten.
+            </p>
+          </div>
+          <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/15 sm:mt-10">
+            <div className="aspect-video">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/spIGxSGx1WI?rel=0"
+                title="Mission work in action: Look at Jesus in this whole community"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </Inner>
+      </Section>
+
       <Section className="bg-gold/15">
         <Inner>
           <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
