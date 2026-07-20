@@ -89,12 +89,12 @@ export default async function ThankYouPage({ searchParams }: { searchParams?: Pr
   return (
     <>
       <PageHero
-        title={subscription ? "Thank you — your monthly gift is active" : order ? "Thank you — payment received" : "Your generosity just became practical help."}
+        title={subscription ? "Thank you — your monthly gift is active" : order ? "Your kindness is already making a difference." : "Your generosity just became practical help."}
         text={
           subscription
             ? `Thank you ${subscriberName ?? ""}. Your monthly support provides dependable help for families and communities throughout the year.`
             : order
-            ? `Thank you ${payerName ?? ""}. We received your ${currency} ${amount}. Your gift will help provide meals, emergency support, and pathways to stability for people in need.`
+            ? `${payerName ? `${payerName}, thank you` : "Thank you"} for your generous gift of ${currency} ${amount}. Because of you, families can receive meals, emergency support, and practical help toward a more stable future. We’re deeply grateful you chose to stand with this community.`
             : "Thank you for supporting The Daily Bread Project. Your gift helps us respond with dignity, compassion, and practical support."
         }
       />
