@@ -30,9 +30,22 @@ export const metadata: Metadata = {
     description: siteSettings.description,
     url: siteSettings.url,
     siteName: siteSettings.name,
-    images: [{ url: siteSettings.logo, width: 1672, height: 941 }],
+    images: [
+      {
+        url: "/images/social-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "The Daily Bread Project",
+      },
+    ],
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Daily Bread Project | Restoring Dignity and Hope",
+    description: siteSettings.description,
+    images: ["/images/social-preview.png"],
   },
 };
 
