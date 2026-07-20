@@ -195,7 +195,7 @@ export default function Home() {
         <Inner>
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-gold">Mission Work in Action</p>
-            <h2 className="mt-3 font-serif text-3xl font-bold sm:text-5xl">Watch our mission work in action.</h2>
+            <h2 className="mt-3 font-serif text-3xl font-bold sm:text-5xl">Faith at work, one well at a time.</h2>
             <p className="mt-5 text-lg leading-8 text-ivory/80">
               Meet our local partner as he digs a well by hand—an inspiring act of faith, determination, and service to help bring clean water closer to families.
             </p>
